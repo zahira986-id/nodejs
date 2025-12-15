@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie de Chats</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Cats Gallery</h1>
+            <p class="subtitle">Une collection de chats adorables</p>
+            <div class="header-actions">
+                <button id="add-cat-btn" class="btn btn-add">
+                    <i class="fas fa-plus"></i> Ajouter un chat
+                </button>
+                <button id="reset-btn" class="btn btn-reset">
+                    <i class="fas fa-redo"></i> Réinitialiser
+                </button>
+            </div>
+        </header>
+
+        <div id="gallery" class="gallery">
+            <!-- Les cartes de chats seront générées dynamiquement -->
+        </div>
+
+        <!-- Formulaire modal pour ajouter/modifier un chat -->
+        <div id="cat-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modal-title">Ajouter un nouveau chat</h2>
+                    <button class="close-btn">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="cat-form">
+                        <div class="form-group">
+                            <label for="cat-name">Nom du chat *</label>
+                            <input type="text" id="cat-name" name="name" required placeholder="Ex: Mistigri">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cat-description">Description *</label>
+                            <textarea id="cat-description" name="description" required placeholder="Décrivez ce chat..."
+                                rows="3"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cat-tag">Tag *</label>
+                            <input type="text" id="cat-tag" name="tag" required placeholder="Ex: chaton, tigré, etc.">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cat-image">URL de l'image</label>
+                            <input type="url" id="cat-image" name="image" placeholder="https://exemple.com/image.jpg">
+                            <small>Laissez vide pour une image par défaut</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cat-details">Détails supplémentaires</label>
+                            <textarea id="cat-details" name="details" placeholder="Âge, race, personnalité..."
+                                rows="2"></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-cancel">Annuler</button>
+                            <button type="submit" class="btn btn-submit">Enregistrer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de confirmation de suppression -->
+        <div id="confirm-modal" class="modal">
+            <div class="modal-content confirm-modal">
+                <div class="modal-header">
+                    <h2>Confirmer la suppression</h2>
+                    <button class="close-btn">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Êtes-vous sûr de vouloir supprimer ce chat ? Cette action est irréversible.</p>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-cancel">Annuler</button>
+                        <button type="button" class="btn btn-delete-confirm">Supprimer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Galerie de Chats &copy; 2023 - Tous droits réservés</p>
+            <p>Nombre de chats dans la galerie: <span id="cat-count">0</span></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
